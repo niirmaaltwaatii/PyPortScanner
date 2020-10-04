@@ -9,9 +9,17 @@ s.settimeout(4)
 
 # for specific scan
 def sscan():
-    host = input("IP Address : ")
-    port = int(input("Specific Port : "))
-    portScan(host, port)
+    while True :
+        host = input("IP Address : ")
+        port = input("Specific Port : ")
+        try :
+            int(port)
+            break
+        except :
+            print(f"{port} is not an Integer !")
+            print(f"{host}:{port} is Invalid Target !")
+            continue
+    portScan(host, int(port))
 
 # for fixed scan
 def fscan(port) :
@@ -21,7 +29,11 @@ def fscan(port) :
 
 # scan port
 def portScan(host, port):
-    if s.connect_ex((host, port)):
-        print(f"{host}:{port} is closed")
-    else:
-        print(f"{host}:{port} is Open")
+    try :
+        if s.connect_ex((host, port)):
+            print(f"{host}:{port} is closed")
+        else:
+            print(f"{host}:{port} is Open")
+    except :
+        print(f"{host} is Invalid Host ! Redirecting to Specific Port scan ...")
+        sscan()
