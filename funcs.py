@@ -23,8 +23,15 @@ def sscan():
 
 # for fixed scan
 def fscan(port) :
-    host = input("IP Address : ")
-    portScan(host, port)
+    while True :
+        try :
+            host = input("IP Address : ")
+            s.connect_ex((host, port))
+            portScan(host, port)
+            break
+        except :
+            print(f"{host} is Invalid Host !")
+            continue
 
 
 # scan port
@@ -35,5 +42,5 @@ def portScan(host, port):
         else:
             print(f"{host}:{port} is Open")
     except :
-        print(f"{host} is Invalid Host ! Redirecting to Specific Port scan ...")
+        print(f"{host} is Invalid Host !")
         sscan()
