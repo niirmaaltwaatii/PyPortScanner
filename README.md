@@ -8,3 +8,5 @@ git clone https://github.com/niirmaaltwaatii/PyPortScanner
 cd PyPortScanner
 python pps.py
 ```
+### Screenshot
+<img src="img/PyPortScanner.png" alt="PyPortScanner" />
