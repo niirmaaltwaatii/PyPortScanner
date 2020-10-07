@@ -43,4 +43,4 @@ def portScan(host, port):
             s.close()
     except :
         print(f"{host} is Invalid Host !")
-        sscan()
+
