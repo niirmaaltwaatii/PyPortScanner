@@ -4,8 +4,8 @@
 
 import socket
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.settimeout(4)
+#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#s.settimeout(4)
 
 # for specific scan
 def sscan():
@@ -26,7 +26,7 @@ def fscan(port) :
     while True :
         try :
             host = input("IP Address : ")
-            s.connect_ex((host, port))
+            #s.connect_ex((host, port))
             portScan(host, port)
             break
         except :
@@ -37,10 +37,14 @@ def fscan(port) :
 # scan port
 def portScan(host, port):
     try :
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(4)
         if s.connect_ex((host, port)):
             print(f"{host}:{port} is closed")
+            s.close()
         else:
             print(f"{host}:{port} is Open")
+            s.close()
     except :
         print(f"{host} is Invalid Host !")
         sscan()
