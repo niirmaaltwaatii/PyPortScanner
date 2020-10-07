@@ -4,9 +4,6 @@
 
 import socket
 
-#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#s.settimeout(4)
-
 # for specific scan
 def sscan():
     while True :
@@ -26,7 +23,6 @@ def fscan(port) :
     while True :
         try :
             host = input("IP Address : ")
-            #s.connect_ex((host, port))
             portScan(host, port)
             break
         except :
