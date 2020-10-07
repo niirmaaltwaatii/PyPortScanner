@@ -4,13 +4,14 @@
 
 import funcs
 
+dl = "-" * 70
 banner = f"""
-----------------------------------------------------------------------
+{dl}
     PyTool  : PyPortScanner
     Version : 1.0.0
     Author  : Niirmaal Twaatii
     GitHub  : https://www.github.com/niirmaaltwaatii/PyPortScanner
-----------------------------------------------------------------------
+{dl}
 """
 
 options = f"""
